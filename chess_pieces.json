@@ -129,6 +129,26 @@
         "en_passant": true
       },
       "count": 8
+    },
+    {
+      "type": "Archer",
+      "color": "white",
+      "position": {"x": 1, "y": 0}
+    },
+    {
+      "type": "Archer",
+      "color": "white",
+      "position": {"x": 6, "y": 0}
+    },
+    {
+      "type": "Archer",
+      "color": "black",
+      "position": {"x": 1, "y": 7}
+    },
+    {
+      "type": "Archer",
+      "color": "black",
+      "position": {"x": 6, "y": 7}
     }
   ],
   "custom_pieces": [],

@@ -51,49 +51,56 @@ build cmake_object_order_depends_target_CHESS3: phony || .
 
 build CMakeFiles/CHESS3.dir/main.cpp.o: CXX_COMPILER__CHESS3_unscanned_Debug /Users/muhammedenescam/Desktop/CHESS3/main.cpp || cmake_object_order_depends_target_CHESS3
   DEP_FILE = CMakeFiles/CHESS3.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/muhammedenescam/Desktop/CHESS3/include -I/Users/muhammedenescam/Desktop/CHESS3
-  OBJECT_DIR = CMakeFiles/CHESS3.dir
-  OBJECT_FILE_DIR = CMakeFiles/CHESS3.dir
-
-build CMakeFiles/CHESS3.dir/ChessBoard.cpp.o: CXX_COMPILER__CHESS3_unscanned_Debug /Users/muhammedenescam/Desktop/CHESS3/ChessBoard.cpp || cmake_object_order_depends_target_CHESS3
-  DEP_FILE = CMakeFiles/CHESS3.dir/ChessBoard.cpp.o.d
-  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/muhammedenescam/Desktop/CHESS3/include -I/Users/muhammedenescam/Desktop/CHESS3
-  OBJECT_DIR = CMakeFiles/CHESS3.dir
-  OBJECT_FILE_DIR = CMakeFiles/CHESS3.dir
-
-build CMakeFiles/CHESS3.dir/MoveValidator.cpp.o: CXX_COMPILER__CHESS3_unscanned_Debug /Users/muhammedenescam/Desktop/CHESS3/MoveValidator.cpp || cmake_object_order_depends_target_CHESS3
-  DEP_FILE = CMakeFiles/CHESS3.dir/MoveValidator.cpp.o.d
-  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/muhammedenescam/Desktop/CHESS3/include -I/Users/muhammedenescam/Desktop/CHESS3
-  OBJECT_DIR = CMakeFiles/CHESS3.dir
-  OBJECT_FILE_DIR = CMakeFiles/CHESS3.dir
-
-build CMakeFiles/CHESS3.dir/Piece.cpp.o: CXX_COMPILER__CHESS3_unscanned_Debug /Users/muhammedenescam/Desktop/CHESS3/Piece.cpp || cmake_object_order_depends_target_CHESS3
-  DEP_FILE = CMakeFiles/CHESS3.dir/Piece.cpp.o.d
-  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/muhammedenescam/Desktop/CHESS3/include -I/Users/muhammedenescam/Desktop/CHESS3
-  OBJECT_DIR = CMakeFiles/CHESS3.dir
-  OBJECT_FILE_DIR = CMakeFiles/CHESS3.dir
-
-build CMakeFiles/CHESS3.dir/ConfigReader.cpp.o: CXX_COMPILER__CHESS3_unscanned_Debug /Users/muhammedenescam/Desktop/CHESS3/ConfigReader.cpp || cmake_object_order_depends_target_CHESS3
-  DEP_FILE = CMakeFiles/CHESS3.dir/ConfigReader.cpp.o.d
-  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/muhammedenescam/Desktop/CHESS3/include -I/Users/muhammedenescam/Desktop/CHESS3
-  OBJECT_DIR = CMakeFiles/CHESS3.dir
-  OBJECT_FILE_DIR = CMakeFiles/CHESS3.dir
-
-build CMakeFiles/CHESS3.dir/Portal.cpp.o: CXX_COMPILER__CHESS3_unscanned_Debug /Users/muhammedenescam/Desktop/CHESS3/Portal.cpp || cmake_object_order_depends_target_CHESS3
-  DEP_FILE = CMakeFiles/CHESS3.dir/Portal.cpp.o.d
-  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/muhammedenescam/Desktop/CHESS3/include -I/Users/muhammedenescam/Desktop/CHESS3
   OBJECT_DIR = CMakeFiles/CHESS3.dir
   OBJECT_FILE_DIR = CMakeFiles/CHESS3.dir
 
 build CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o: CXX_COMPILER__CHESS3_unscanned_Debug /Users/muhammedenescam/Desktop/CHESS3/BoardPrinter.cpp || cmake_object_order_depends_target_CHESS3
   DEP_FILE = CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o.d
-  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/muhammedenescam/Desktop/CHESS3/include -I/Users/muhammedenescam/Desktop/CHESS3
+  OBJECT_DIR = CMakeFiles/CHESS3.dir
+  OBJECT_FILE_DIR = CMakeFiles/CHESS3.dir
+
+build CMakeFiles/CHESS3.dir/ChessBoard.cpp.o: CXX_COMPILER__CHESS3_unscanned_Debug /Users/muhammedenescam/Desktop/CHESS3/ChessBoard.cpp || cmake_object_order_depends_target_CHESS3
+  DEP_FILE = CMakeFiles/CHESS3.dir/ChessBoard.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/muhammedenescam/Desktop/CHESS3/include -I/Users/muhammedenescam/Desktop/CHESS3
+  OBJECT_DIR = CMakeFiles/CHESS3.dir
+  OBJECT_FILE_DIR = CMakeFiles/CHESS3.dir
+
+build CMakeFiles/CHESS3.dir/ConfigReader.cpp.o: CXX_COMPILER__CHESS3_unscanned_Debug /Users/muhammedenescam/Desktop/CHESS3/ConfigReader.cpp || cmake_object_order_depends_target_CHESS3
+  DEP_FILE = CMakeFiles/CHESS3.dir/ConfigReader.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/muhammedenescam/Desktop/CHESS3/include -I/Users/muhammedenescam/Desktop/CHESS3
+  OBJECT_DIR = CMakeFiles/CHESS3.dir
+  OBJECT_FILE_DIR = CMakeFiles/CHESS3.dir
+
+build CMakeFiles/CHESS3.dir/MoveValidator.cpp.o: CXX_COMPILER__CHESS3_unscanned_Debug /Users/muhammedenescam/Desktop/CHESS3/MoveValidator.cpp || cmake_object_order_depends_target_CHESS3
+  DEP_FILE = CMakeFiles/CHESS3.dir/MoveValidator.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/muhammedenescam/Desktop/CHESS3/include -I/Users/muhammedenescam/Desktop/CHESS3
+  OBJECT_DIR = CMakeFiles/CHESS3.dir
+  OBJECT_FILE_DIR = CMakeFiles/CHESS3.dir
+
+build CMakeFiles/CHESS3.dir/Piece.cpp.o: CXX_COMPILER__CHESS3_unscanned_Debug /Users/muhammedenescam/Desktop/CHESS3/Piece.cpp || cmake_object_order_depends_target_CHESS3
+  DEP_FILE = CMakeFiles/CHESS3.dir/Piece.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/muhammedenescam/Desktop/CHESS3/include -I/Users/muhammedenescam/Desktop/CHESS3
+  OBJECT_DIR = CMakeFiles/CHESS3.dir
+  OBJECT_FILE_DIR = CMakeFiles/CHESS3.dir
+
+build CMakeFiles/CHESS3.dir/Portal.cpp.o: CXX_COMPILER__CHESS3_unscanned_Debug /Users/muhammedenescam/Desktop/CHESS3/Portal.cpp || cmake_object_order_depends_target_CHESS3
+  DEP_FILE = CMakeFiles/CHESS3.dir/Portal.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/muhammedenescam/Desktop/CHESS3/include -I/Users/muhammedenescam/Desktop/CHESS3
+  OBJECT_DIR = CMakeFiles/CHESS3.dir
+  OBJECT_FILE_DIR = CMakeFiles/CHESS3.dir
+
+build CMakeFiles/CHESS3.dir/Archer.cpp.o: CXX_COMPILER__CHESS3_unscanned_Debug /Users/muhammedenescam/Desktop/CHESS3/Archer.cpp || cmake_object_order_depends_target_CHESS3
+  DEP_FILE = CMakeFiles/CHESS3.dir/Archer.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/muhammedenescam/Desktop/CHESS3/include -I/Users/muhammedenescam/Desktop/CHESS3
   OBJECT_DIR = CMakeFiles/CHESS3.dir
   OBJECT_FILE_DIR = CMakeFiles/CHESS3.dir
@@ -106,7 +113,7 @@ build CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o: CXX_COMPILER__CHESS3_unscanned_D
 #############################################
 # Link the executable CHESS3
 
-build CHESS3: CXX_EXECUTABLE_LINKER__CHESS3_Debug CMakeFiles/CHESS3.dir/main.cpp.o CMakeFiles/CHESS3.dir/ChessBoard.cpp.o CMakeFiles/CHESS3.dir/MoveValidator.cpp.o CMakeFiles/CHESS3.dir/Piece.cpp.o CMakeFiles/CHESS3.dir/ConfigReader.cpp.o CMakeFiles/CHESS3.dir/Portal.cpp.o CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o
+build CHESS3: CXX_EXECUTABLE_LINKER__CHESS3_Debug CMakeFiles/CHESS3.dir/main.cpp.o CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o CMakeFiles/CHESS3.dir/ChessBoard.cpp.o CMakeFiles/CHESS3.dir/ConfigReader.cpp.o CMakeFiles/CHESS3.dir/MoveValidator.cpp.o CMakeFiles/CHESS3.dir/Piece.cpp.o CMakeFiles/CHESS3.dir/Portal.cpp.o CMakeFiles/CHESS3.dir/Archer.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk
   OBJECT_DIR = CMakeFiles/CHESS3.dir
   POST_BUILD = :
@@ -142,13 +149,6 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 # =============================================================================
 # Folder targets.
-
-# =============================================================================
-
-#############################################
-# Folder: /Users/muhammedenescam/Desktop/CHESS3/cmake-build-debug
-
-build codegen: phony
 
 # =============================================================================
 

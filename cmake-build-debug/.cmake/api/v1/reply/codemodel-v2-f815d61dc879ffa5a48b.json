@@ -9,7 +9,7 @@
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.31"
+						"string" : "3.10"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "CHESS3::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-CHESS3-Debug-5df545f9f183193113b5.json",
+					"jsonFile" : "target-CHESS3-Debug-a42d8f1f737e0add0688.json",
 					"name" : "CHESS3",
 					"projectIndex" : 0
 				}
