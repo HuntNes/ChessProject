@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/muhammedenescam/Desktop/CHESS3/Archer.cpp" "CMakeFiles/CHESS3.dir/Archer.cpp.o" "gcc" "CMakeFiles/CHESS3.dir/Archer.cpp.o.d"
   "/Users/muhammedenescam/Desktop/CHESS3/BoardPrinter.cpp" "CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o" "gcc" "CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o.d"
   "/Users/muhammedenescam/Desktop/CHESS3/ChessBoard.cpp" "CMakeFiles/CHESS3.dir/ChessBoard.cpp.o" "gcc" "CMakeFiles/CHESS3.dir/ChessBoard.cpp.o.d"
   "/Users/muhammedenescam/Desktop/CHESS3/ConfigReader.cpp" "CMakeFiles/CHESS3.dir/ConfigReader.cpp.o" "gcc" "CMakeFiles/CHESS3.dir/ConfigReader.cpp.o.d"

@@ -86,10 +86,24 @@ CMakeFiles/CHESS3.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CHESS3.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/muhammedenescam/Desktop/CHESS3/main.cpp -o CMakeFiles/CHESS3.dir/main.cpp.s
 
+CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o: CMakeFiles/CHESS3.dir/flags.make
+CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o: /Users/muhammedenescam/Desktop/CHESS3/BoardPrinter.cpp
+CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o: CMakeFiles/CHESS3.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o -MF CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o.d -o CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o -c /Users/muhammedenescam/Desktop/CHESS3/BoardPrinter.cpp
+
+CMakeFiles/CHESS3.dir/BoardPrinter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CHESS3.dir/BoardPrinter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/muhammedenescam/Desktop/CHESS3/BoardPrinter.cpp > CMakeFiles/CHESS3.dir/BoardPrinter.cpp.i
+
+CMakeFiles/CHESS3.dir/BoardPrinter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CHESS3.dir/BoardPrinter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/muhammedenescam/Desktop/CHESS3/BoardPrinter.cpp -o CMakeFiles/CHESS3.dir/BoardPrinter.cpp.s
+
 CMakeFiles/CHESS3.dir/ChessBoard.cpp.o: CMakeFiles/CHESS3.dir/flags.make
 CMakeFiles/CHESS3.dir/ChessBoard.cpp.o: /Users/muhammedenescam/Desktop/CHESS3/ChessBoard.cpp
 CMakeFiles/CHESS3.dir/ChessBoard.cpp.o: CMakeFiles/CHESS3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CHESS3.dir/ChessBoard.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CHESS3.dir/ChessBoard.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CHESS3.dir/ChessBoard.cpp.o -MF CMakeFiles/CHESS3.dir/ChessBoard.cpp.o.d -o CMakeFiles/CHESS3.dir/ChessBoard.cpp.o -c /Users/muhammedenescam/Desktop/CHESS3/ChessBoard.cpp
 
 CMakeFiles/CHESS3.dir/ChessBoard.cpp.i: cmake_force
@@ -100,10 +114,24 @@ CMakeFiles/CHESS3.dir/ChessBoard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CHESS3.dir/ChessBoard.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/muhammedenescam/Desktop/CHESS3/ChessBoard.cpp -o CMakeFiles/CHESS3.dir/ChessBoard.cpp.s
 
+CMakeFiles/CHESS3.dir/ConfigReader.cpp.o: CMakeFiles/CHESS3.dir/flags.make
+CMakeFiles/CHESS3.dir/ConfigReader.cpp.o: /Users/muhammedenescam/Desktop/CHESS3/ConfigReader.cpp
+CMakeFiles/CHESS3.dir/ConfigReader.cpp.o: CMakeFiles/CHESS3.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CHESS3.dir/ConfigReader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CHESS3.dir/ConfigReader.cpp.o -MF CMakeFiles/CHESS3.dir/ConfigReader.cpp.o.d -o CMakeFiles/CHESS3.dir/ConfigReader.cpp.o -c /Users/muhammedenescam/Desktop/CHESS3/ConfigReader.cpp
+
+CMakeFiles/CHESS3.dir/ConfigReader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CHESS3.dir/ConfigReader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/muhammedenescam/Desktop/CHESS3/ConfigReader.cpp > CMakeFiles/CHESS3.dir/ConfigReader.cpp.i
+
+CMakeFiles/CHESS3.dir/ConfigReader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CHESS3.dir/ConfigReader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/muhammedenescam/Desktop/CHESS3/ConfigReader.cpp -o CMakeFiles/CHESS3.dir/ConfigReader.cpp.s
+
 CMakeFiles/CHESS3.dir/MoveValidator.cpp.o: CMakeFiles/CHESS3.dir/flags.make
 CMakeFiles/CHESS3.dir/MoveValidator.cpp.o: /Users/muhammedenescam/Desktop/CHESS3/MoveValidator.cpp
 CMakeFiles/CHESS3.dir/MoveValidator.cpp.o: CMakeFiles/CHESS3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CHESS3.dir/MoveValidator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CHESS3.dir/MoveValidator.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CHESS3.dir/MoveValidator.cpp.o -MF CMakeFiles/CHESS3.dir/MoveValidator.cpp.o.d -o CMakeFiles/CHESS3.dir/MoveValidator.cpp.o -c /Users/muhammedenescam/Desktop/CHESS3/MoveValidator.cpp
 
 CMakeFiles/CHESS3.dir/MoveValidator.cpp.i: cmake_force
@@ -117,7 +145,7 @@ CMakeFiles/CHESS3.dir/MoveValidator.cpp.s: cmake_force
 CMakeFiles/CHESS3.dir/Piece.cpp.o: CMakeFiles/CHESS3.dir/flags.make
 CMakeFiles/CHESS3.dir/Piece.cpp.o: /Users/muhammedenescam/Desktop/CHESS3/Piece.cpp
 CMakeFiles/CHESS3.dir/Piece.cpp.o: CMakeFiles/CHESS3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CHESS3.dir/Piece.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CHESS3.dir/Piece.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CHESS3.dir/Piece.cpp.o -MF CMakeFiles/CHESS3.dir/Piece.cpp.o.d -o CMakeFiles/CHESS3.dir/Piece.cpp.o -c /Users/muhammedenescam/Desktop/CHESS3/Piece.cpp
 
 CMakeFiles/CHESS3.dir/Piece.cpp.i: cmake_force
@@ -128,24 +156,10 @@ CMakeFiles/CHESS3.dir/Piece.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CHESS3.dir/Piece.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/muhammedenescam/Desktop/CHESS3/Piece.cpp -o CMakeFiles/CHESS3.dir/Piece.cpp.s
 
-CMakeFiles/CHESS3.dir/ConfigReader.cpp.o: CMakeFiles/CHESS3.dir/flags.make
-CMakeFiles/CHESS3.dir/ConfigReader.cpp.o: /Users/muhammedenescam/Desktop/CHESS3/ConfigReader.cpp
-CMakeFiles/CHESS3.dir/ConfigReader.cpp.o: CMakeFiles/CHESS3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CHESS3.dir/ConfigReader.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CHESS3.dir/ConfigReader.cpp.o -MF CMakeFiles/CHESS3.dir/ConfigReader.cpp.o.d -o CMakeFiles/CHESS3.dir/ConfigReader.cpp.o -c /Users/muhammedenescam/Desktop/CHESS3/ConfigReader.cpp
-
-CMakeFiles/CHESS3.dir/ConfigReader.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CHESS3.dir/ConfigReader.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/muhammedenescam/Desktop/CHESS3/ConfigReader.cpp > CMakeFiles/CHESS3.dir/ConfigReader.cpp.i
-
-CMakeFiles/CHESS3.dir/ConfigReader.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CHESS3.dir/ConfigReader.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/muhammedenescam/Desktop/CHESS3/ConfigReader.cpp -o CMakeFiles/CHESS3.dir/ConfigReader.cpp.s
-
 CMakeFiles/CHESS3.dir/Portal.cpp.o: CMakeFiles/CHESS3.dir/flags.make
 CMakeFiles/CHESS3.dir/Portal.cpp.o: /Users/muhammedenescam/Desktop/CHESS3/Portal.cpp
 CMakeFiles/CHESS3.dir/Portal.cpp.o: CMakeFiles/CHESS3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CHESS3.dir/Portal.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CHESS3.dir/Portal.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CHESS3.dir/Portal.cpp.o -MF CMakeFiles/CHESS3.dir/Portal.cpp.o.d -o CMakeFiles/CHESS3.dir/Portal.cpp.o -c /Users/muhammedenescam/Desktop/CHESS3/Portal.cpp
 
 CMakeFiles/CHESS3.dir/Portal.cpp.i: cmake_force
@@ -156,43 +170,45 @@ CMakeFiles/CHESS3.dir/Portal.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CHESS3.dir/Portal.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/muhammedenescam/Desktop/CHESS3/Portal.cpp -o CMakeFiles/CHESS3.dir/Portal.cpp.s
 
-CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o: CMakeFiles/CHESS3.dir/flags.make
-CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o: /Users/muhammedenescam/Desktop/CHESS3/BoardPrinter.cpp
-CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o: CMakeFiles/CHESS3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o -MF CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o.d -o CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o -c /Users/muhammedenescam/Desktop/CHESS3/BoardPrinter.cpp
+CMakeFiles/CHESS3.dir/Archer.cpp.o: CMakeFiles/CHESS3.dir/flags.make
+CMakeFiles/CHESS3.dir/Archer.cpp.o: /Users/muhammedenescam/Desktop/CHESS3/Archer.cpp
+CMakeFiles/CHESS3.dir/Archer.cpp.o: CMakeFiles/CHESS3.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/CHESS3.dir/Archer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CHESS3.dir/Archer.cpp.o -MF CMakeFiles/CHESS3.dir/Archer.cpp.o.d -o CMakeFiles/CHESS3.dir/Archer.cpp.o -c /Users/muhammedenescam/Desktop/CHESS3/Archer.cpp
 
-CMakeFiles/CHESS3.dir/BoardPrinter.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CHESS3.dir/BoardPrinter.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/muhammedenescam/Desktop/CHESS3/BoardPrinter.cpp > CMakeFiles/CHESS3.dir/BoardPrinter.cpp.i
+CMakeFiles/CHESS3.dir/Archer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CHESS3.dir/Archer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/muhammedenescam/Desktop/CHESS3/Archer.cpp > CMakeFiles/CHESS3.dir/Archer.cpp.i
 
-CMakeFiles/CHESS3.dir/BoardPrinter.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CHESS3.dir/BoardPrinter.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/muhammedenescam/Desktop/CHESS3/BoardPrinter.cpp -o CMakeFiles/CHESS3.dir/BoardPrinter.cpp.s
+CMakeFiles/CHESS3.dir/Archer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CHESS3.dir/Archer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/muhammedenescam/Desktop/CHESS3/Archer.cpp -o CMakeFiles/CHESS3.dir/Archer.cpp.s
 
 # Object files for target CHESS3
 CHESS3_OBJECTS = \
 "CMakeFiles/CHESS3.dir/main.cpp.o" \
+"CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o" \
 "CMakeFiles/CHESS3.dir/ChessBoard.cpp.o" \
+"CMakeFiles/CHESS3.dir/ConfigReader.cpp.o" \
 "CMakeFiles/CHESS3.dir/MoveValidator.cpp.o" \
 "CMakeFiles/CHESS3.dir/Piece.cpp.o" \
-"CMakeFiles/CHESS3.dir/ConfigReader.cpp.o" \
 "CMakeFiles/CHESS3.dir/Portal.cpp.o" \
-"CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o"
+"CMakeFiles/CHESS3.dir/Archer.cpp.o"
 
 # External object files for target CHESS3
 CHESS3_EXTERNAL_OBJECTS =
 
 CHESS3: CMakeFiles/CHESS3.dir/main.cpp.o
+CHESS3: CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o
 CHESS3: CMakeFiles/CHESS3.dir/ChessBoard.cpp.o
+CHESS3: CMakeFiles/CHESS3.dir/ConfigReader.cpp.o
 CHESS3: CMakeFiles/CHESS3.dir/MoveValidator.cpp.o
 CHESS3: CMakeFiles/CHESS3.dir/Piece.cpp.o
-CHESS3: CMakeFiles/CHESS3.dir/ConfigReader.cpp.o
 CHESS3: CMakeFiles/CHESS3.dir/Portal.cpp.o
-CHESS3: CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o
+CHESS3: CMakeFiles/CHESS3.dir/Archer.cpp.o
 CHESS3: CMakeFiles/CHESS3.dir/build.make
 CHESS3: CMakeFiles/CHESS3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable CHESS3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable CHESS3"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CHESS3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

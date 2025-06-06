@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CHESS3"
   "CHESS3.pdb"
+  "CMakeFiles/CHESS3.dir/Archer.cpp.o"
+  "CMakeFiles/CHESS3.dir/Archer.cpp.o.d"
   "CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o"
   "CMakeFiles/CHESS3.dir/BoardPrinter.cpp.o.d"
   "CMakeFiles/CHESS3.dir/ChessBoard.cpp.o"

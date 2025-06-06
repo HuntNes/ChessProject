@@ -47,14 +47,28 @@ bool MoveValidator::validateMove(Piece* piece, int fromX, int fromY, int toX, in
             !board->getPieceAt(fromX, fromY + direction)) return true;
         // Çapraz alma
         if (absDx == 1 && dy == direction && target && target->getColor() != color) return true;
-        // (En passant ve terfi eklenebilir)
         return false;
     }
     // KING
     if (type == "King") {
+        // Sadece 1 kare her yöne hareket
         if (absDx <= 1 && absDy <= 1) return true;
-        // Rok ve portal için BFS
-        return bfsWithPortals(piece, fromX, fromY, toX, toY, portals);
+        // Portal için BFS (rok hariç)
+        if (absDx > 1 || absDy > 1) {
+            // Portal kontrolü
+            for (const auto& portal : portals) {
+                if (portal.isAvailable() && portal.isColorAllowed(color)) {
+                    Position entry = portal.getEntry();
+                    Position exit = portal.getExit();
+                    if ((fromX == entry.x && fromY == entry.y && toX == exit.x && toY == exit.y) ||
+                        (fromX == exit.x && fromY == exit.y && toX == entry.x && toY == entry.y)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return true;
     }
     // QUEEN
     if (type == "Queen") {

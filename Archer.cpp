@@ -1,8 +1,13 @@
 #include "Archer.h"
 #include "ChessBoard.h"
 #include <cmath>
+#include <map>
 
-Archer::Archer(const std::string& color) : Piece(color) {}
+Archer::Archer(const std::string& color) : 
+    Piece("Archer", color, 
+          {{"forward", 2}, {"sideways", 2}, {"diagonal", 2}},  // Hareket kabiliyetleri
+          {{"jump_over", true}})  // Özel yetenekler
+{}
 
 bool Archer::isValidMove(int fromX, int fromY, int toX, int toY, ChessBoard* board) const {
     // Taşın kendi rengindeki başka bir taşın üzerine gitmesini engelle

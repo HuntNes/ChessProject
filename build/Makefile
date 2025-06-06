@@ -92,13 +92,6 @@ all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles 0
 .PHONY : all
 
-# The main codegen target
-codegen: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles /Users/muhammedenescam/Desktop/CHESS3/build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 codegen
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/muhammedenescam/Desktop/CHESS3/build/CMakeFiles 0
-.PHONY : codegen
-
 # The main clean target
 clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
@@ -135,6 +128,30 @@ CHESS3: cmake_check_build_system
 CHESS3/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CHESS3.dir/build.make CMakeFiles/CHESS3.dir/build
 .PHONY : CHESS3/fast
+
+Archer.o: Archer.cpp.o
+.PHONY : Archer.o
+
+# target to build an object file
+Archer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CHESS3.dir/build.make CMakeFiles/CHESS3.dir/Archer.cpp.o
+.PHONY : Archer.cpp.o
+
+Archer.i: Archer.cpp.i
+.PHONY : Archer.i
+
+# target to preprocess a source file
+Archer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CHESS3.dir/build.make CMakeFiles/CHESS3.dir/Archer.cpp.i
+.PHONY : Archer.cpp.i
+
+Archer.s: Archer.cpp.s
+.PHONY : Archer.s
+
+# target to generate assembly for a file
+Archer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CHESS3.dir/build.make CMakeFiles/CHESS3.dir/Archer.cpp.s
+.PHONY : Archer.cpp.s
 
 BoardPrinter.o: BoardPrinter.cpp.o
 .PHONY : BoardPrinter.o
@@ -310,10 +327,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... codegen"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... CHESS3"
+	@echo "... Archer.o"
+	@echo "... Archer.i"
+	@echo "... Archer.s"
 	@echo "... BoardPrinter.o"
 	@echo "... BoardPrinter.i"
 	@echo "... BoardPrinter.s"
