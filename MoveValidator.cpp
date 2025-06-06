@@ -168,3 +168,143 @@ bool MoveValidator::bfsWithPortals(Piece* piece, int fromX, int fromY, int toX, 
     }
     return false;
 }
+
+bool MoveValidator::isKingInCheck(const std::string& color) const {
+    // Şahın konumunu bul
+    int kingX = -1, kingY = -1;
+    for (int x = 0; x < 8; x++) {
+        for (int y = 0; y < 8; y++) {
+            Piece* piece = board->getPieceAt(x, y);
+            if (piece && piece->getType() == "King" && piece->getColor() == color) {
+                kingX = x;
+                kingY = y;
+                break;
+            }
+        }
+        if (kingX != -1) break;
+    }
+
+    // Karşı renkteki tüm taşları kontrol et
+    std::string oppositeColor = (color == "white") ? "black" : "white";
+    for (int x = 0; x < 8; x++) {
+        for (int y = 0; y < 8; y++) {
+            Piece* piece = board->getPieceAt(x, y);
+            if (piece && piece->getColor() == oppositeColor) {
+                // Taş şaha saldırabiliyor mu?
+                if (validateMove(piece, x, y, kingX, kingY, board->getPortals())) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+std::vector<std::pair<int, int>> MoveValidator::getKingMoves(int kingX, int kingY) const {
+    std::vector<std::pair<int, int>> moves;
+    // Şahın gidebileceği 8 yön
+    int dx[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+    int dy[] = {-1, 0, 1, -1, 1, -1, 0, 1};
+
+    for (int i = 0; i < 8; i++) {
+        int newX = kingX + dx[i];
+        int newY = kingY + dy[i];
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            moves.emplace_back(newX, newY);
+        }
+    }
+    return moves;
+}
+
+bool MoveValidator::isSquareUnderAttack(int x, int y, const std::string& attackingColor) const {
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            Piece* piece = board->getPieceAt(i, j);
+            if (piece && piece->getColor() == attackingColor) {
+                if (validateMove(piece, i, j, x, y, board->getPortals())) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+bool MoveValidator::canKingEscape(const std::string& color) const {
+    // Şahın konumunu bul
+    int kingX = -1, kingY = -1;
+    for (int x = 0; x < 8; x++) {
+        for (int y = 0; y < 8; y++) {
+            Piece* piece = board->getPieceAt(x, y);
+            if (piece && piece->getType() == "King" && piece->getColor() == color) {
+                kingX = x;
+                kingY = y;
+                break;
+            }
+        }
+        if (kingX != -1) break;
+    }
+
+    // Şahın gidebileceği tüm kareleri kontrol et
+    std::string oppositeColor = (color == "white") ? "black" : "white";
+    for (const auto& move : getKingMoves(kingX, kingY)) {
+        int newX = move.first;
+        int newY = move.second;
+        Piece* targetPiece = board->getPieceAt(newX, newY);
+        
+        // Hedef karede kendi taşı yoksa ve saldırı altında değilse
+        if ((!targetPiece || targetPiece->getColor() != color) && 
+            !isSquareUnderAttack(newX, newY, oppositeColor)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool MoveValidator::canPieceBlockCheck(const std::string& color) const {
+    // Tüm taşları kontrol et
+    for (int x = 0; x < 8; x++) {
+        for (int y = 0; y < 8; y++) {
+            Piece* piece = board->getPieceAt(x, y);
+            if (piece && piece->getColor() == color) {
+                // Taşın gidebileceği tüm kareleri kontrol et
+                for (int newX = 0; newX < 8; newX++) {
+                    for (int newY = 0; newY < 8; newY++) {
+                        if (validateMove(piece, x, y, newX, newY, board->getPortals())) {
+                            // Hamleyi yap
+                            Piece* capturedPiece = board->getPieceAt(newX, newY);
+                            board->setPieceAt(newX, newY, piece);
+                            board->setPieceAt(x, y, nullptr);
+
+                            // Şah hala tehdit altında mı?
+                            bool stillInCheck = isKingInCheck(color);
+
+                            // Hamleyi geri al
+                            board->setPieceAt(x, y, piece);
+                            board->setPieceAt(newX, newY, capturedPiece);
+
+                            if (!stillInCheck) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}
+
+bool MoveValidator::isCheckmate(const std::string& color) const {
+    return isKingInCheck(color) && !canKingEscape(color) && !canPieceBlockCheck(color);
+}
+
+bool MoveValidator::isGameOver() const {
+    return isCheckmate("white") || isCheckmate("black");
+}
+
+std::string MoveValidator::getWinner() const {
+    if (isCheckmate("white")) return "black";
+    if (isCheckmate("black")) return "white";
+    return "none";
+}
