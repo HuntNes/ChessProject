@@ -1,0 +1,3 @@
+/Users/muhammedenescam/Desktop/CHESS3/cmake-build-debug/CMakeFiles/CHESS3.dir
+/Users/muhammedenescam/Desktop/CHESS3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/muhammedenescam/Desktop/CHESS3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
