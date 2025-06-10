@@ -13,11 +13,18 @@ Developed in modern C++20 as part of the CSE211 Data Structures course.
 -  Undo system using stack
 -  Cooldown queue for portal usage
 
-## 🛠️ Build & Run
+## 🛠️ Build & Run Instructions (macOS / Linux)
+
+### 🔹 1. Repoyu klonla
 
 ```bash
-git clone https://github.com/HuntNes/CHESS3.git
-cd CHESS3
-make deps
+git clone https://github.com/HuntNes/ChessProject.git
+cd ChessProject
+
+rm -rf build         # (Optional) Clean up previous builds
+mkdir build
+cd build
+cmake ..
 make
-./bin/chess_game chess_pieces.json
+
+./CHESS3  # play
