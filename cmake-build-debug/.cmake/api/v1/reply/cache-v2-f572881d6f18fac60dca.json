@@ -11,7 +11,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/muhammedenescam/Desktop/CHESS3/cmake-build-debug"
+			"value" : "/Users/muhammedenescam/Desktop/CHESS3 2/cmake-build-debug"
 		},
 		{
 			"name" : "CHESS3_IS_TOP_LEVEL",
@@ -35,7 +35,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/muhammedenescam/Desktop/CHESS3"
+			"value" : "/Users/muhammedenescam/Desktop/CHESS3 2"
 		},
 		{
 			"name" : "CMAKE_ADDR2LINE",
@@ -91,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/muhammedenescam/Desktop/CHESS3/cmake-build-debug"
+			"value" : "/Users/muhammedenescam/Desktop/CHESS3 2/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -531,7 +531,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/muhammedenescam/Desktop/CHESS3/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/Users/muhammedenescam/Desktop/CHESS3 2/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -591,7 +591,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/muhammedenescam/Desktop/CHESS3"
+			"value" : "/Users/muhammedenescam/Desktop/CHESS3 2"
 		},
 		{
 			"name" : "CMAKE_INSTALL_NAME_TOOL",

@@ -1,7 +1,9 @@
 #include "MoveValidator.h"
+#include "GameManager.h"
 #include <cmath>
 #include <queue>
 #include <set>
+#include <iostream>
 
 MoveValidator::MoveValidator(ChessBoard* b) : board(b) {}
 
@@ -26,6 +28,51 @@ bool MoveValidator::isPathClear(int fromX, int fromY, int toX, int toY) const {
     return true;
 }
 
+bool MoveValidator::isValidEnPassant(Piece* piece, int fromX, int fromY, int toX, int toY, const LastMove& lastMove) const {
+    if (!piece || piece->getType() != "Pawn") {
+        std::cout << "Not a pawn" << std::endl;
+        return false;
+    }
+
+    std::string color = piece->getColor();
+    int direction = (color == "white") ? 1 : -1;
+
+    std::cout << "Checking en passant:" << std::endl;
+    std::cout << "Last move: " << lastMove.fromX << "," << lastMove.fromY << " -> " 
+              << lastMove.toX << "," << lastMove.toY << " (" << lastMove.pieceType << ")" << std::endl;
+    std::cout << "Current move: " << fromX << "," << fromY << " -> " << toX << "," << toY << std::endl;
+    std::cout << "Direction: " << direction << std::endl;
+
+    if (lastMove.pieceType != "Pawn") {
+        std::cout << "Last move was not a pawn" << std::endl;
+        return false;
+    }
+
+    int lastMoveDirection = (lastMove.toY > lastMove.fromY) ? 1 : -1;
+    if (std::abs(lastMove.toY - lastMove.fromY) != 2) {
+        std::cout << "Last move was not two squares" << std::endl;
+        return false;
+    }
+
+    if (std::abs(lastMove.toX - fromX) != 1) {
+        std::cout << "Pawns are not adjacent" << std::endl;
+        return false;
+    }
+
+    if (lastMove.toY != fromY) {
+        std::cout << "Pawns are not on the same rank" << std::endl;
+        return false;
+    }
+
+    if (toX != lastMove.toX || toY != fromY + direction) {
+        std::cout << "Target square is incorrect" << std::endl;
+        return false;
+    }
+
+    std::cout << "En passant is valid!" << std::endl;
+    return true;
+}
+
 bool MoveValidator::validateMove(Piece* piece, int fromX, int fromY, int toX, int toY, const std::vector<Portal>& portals) const {
     if (!piece) return false;
     std::string type = piece->getType();
@@ -36,26 +83,25 @@ bool MoveValidator::validateMove(Piece* piece, int fromX, int fromY, int toX, in
     int absDy = std::abs(dy);
     Piece* target = board->getPieceAt(toX, toY);
 
-    // PAWN
     if (type == "Pawn") {
         int direction = (color == "white") ? 1 : -1;
-        // İleri düz (taşsız)
         if (dx == 0 && dy == direction && !target) return true;
-        // İlk hamlede iki kare ileri (taşsız)
         if (dx == 0 && dy == 2*direction && !target &&
             ((color == "white" && fromY == 1) || (color == "black" && fromY == 6)) &&
             !board->getPieceAt(fromX, fromY + direction)) return true;
-        // Çapraz alma
-        if (absDx == 1 && dy == direction && target && target->getColor() != color) return true;
+        if (absDx == 1 && dy == direction) {
+            if (target && target->getColor() != color) return true;
+            Piece* adjacentPiece = board->getPieceAt(toX, fromY);
+            if (adjacentPiece && adjacentPiece->getType() == "Pawn" && adjacentPiece->getColor() != color) {
+                return true;
+            }
+        }
         return false;
     }
-    // KING
+
     if (type == "King") {
-        // Sadece 1 kare her yöne hareket
         if (absDx <= 1 && absDy <= 1) return true;
-        // Portal için BFS (rok hariç)
         if (absDx > 1 || absDy > 1) {
-            // Portal kontrolü
             for (const auto& portal : portals) {
                 if (portal.isAvailable() && portal.isColorAllowed(color)) {
                     Position entry = portal.getEntry();
@@ -70,27 +116,22 @@ bool MoveValidator::validateMove(Piece* piece, int fromX, int fromY, int toX, in
         }
         return true;
     }
-    // QUEEN
     if (type == "Queen") {
         if ((absDx == absDy || dx == 0 || dy == 0) && isPathClear(fromX, fromY, toX, toY)) return true;
         return bfsWithPortals(piece, fromX, fromY, toX, toY, portals);
     }
-    // ROOK
     if (type == "Rook") {
         if ((dx == 0 || dy == 0) && isPathClear(fromX, fromY, toX, toY)) return true;
         return bfsWithPortals(piece, fromX, fromY, toX, toY, portals);
     }
-    // BISHOP
     if (type == "Bishop") {
         if ((absDx == absDy) && isPathClear(fromX, fromY, toX, toY)) return true;
         return bfsWithPortals(piece, fromX, fromY, toX, toY, portals);
     }
-    // KNIGHT
     if (type == "Knight") {
         if ((absDx == 2 && absDy == 1) || (absDx == 1 && absDy == 2)) return true;
         return bfsWithPortals(piece, fromX, fromY, toX, toY, portals);
     }
-    // Diğer taşlar ve özel yetenekler için BFS
     return bfsWithPortals(piece, fromX, fromY, toX, toY, portals);
 }
 
@@ -108,7 +149,6 @@ bool MoveValidator::bfsWithPortals(Piece* piece, int fromX, int fromY, int toX, 
         Node curr = q.front(); q.pop();
         if (curr.x == toX && curr.y == toY) return true;
 
-        // Standart hamleler (dikey, yatay, çapraz, L)
         std::vector<std::pair<int, int>> directions = {
             {1,0}, {-1,0}, {0,1}, {0,-1}, {1,1}, {-1,-1}, {1,-1}, {-1,1}
         };
@@ -136,7 +176,6 @@ bool MoveValidator::bfsWithPortals(Piece* piece, int fromX, int fromY, int toX, 
                 if (!canJump && board->getPieceAt(nx, ny) != nullptr) break;
             }
         }
-        // L-şekilli hareket
         if (movement.find("l_shape") != movement.end() && movement.at("l_shape")) {
             std::vector<std::pair<int, int>> l_moves = {
                 {2,1},{1,2},{-1,2},{-2,1},{-2,-1},{-1,-2},{1,-2},{2,-1}
@@ -152,7 +191,6 @@ bool MoveValidator::bfsWithPortals(Piece* piece, int fromX, int fromY, int toX, 
                 }
             }
         }
-        // Portal kullanımı
         for (const auto& portal : portals) {
             if (portal.isAvailable() && portal.isColorAllowed(color)) {
                 Position entry = portal.getEntry();
@@ -169,8 +207,7 @@ bool MoveValidator::bfsWithPortals(Piece* piece, int fromX, int fromY, int toX, 
     return false;
 }
 
-bool MoveValidator::isKingInCheck(const std::string& color) const {
-    // Şahın konumunu bul
+bool MoveValidator::isKingInCheck(const std::string& color, const std::vector<Portal>& portals) const {
     int kingX = -1, kingY = -1;
     for (int x = 0; x < 8; x++) {
         for (int y = 0; y < 8; y++) {
@@ -184,14 +221,12 @@ bool MoveValidator::isKingInCheck(const std::string& color) const {
         if (kingX != -1) break;
     }
 
-    // Karşı renkteki tüm taşları kontrol et
     std::string oppositeColor = (color == "white") ? "black" : "white";
     for (int x = 0; x < 8; x++) {
         for (int y = 0; y < 8; y++) {
             Piece* piece = board->getPieceAt(x, y);
             if (piece && piece->getColor() == oppositeColor) {
-                // Taş şaha saldırabiliyor mu?
-                if (validateMove(piece, x, y, kingX, kingY, board->getPortals())) {
+                if (validateMove(piece, x, y, kingX, kingY, portals)) {
                     return true;
                 }
             }
@@ -202,7 +237,6 @@ bool MoveValidator::isKingInCheck(const std::string& color) const {
 
 std::vector<std::pair<int, int>> MoveValidator::getKingMoves(int kingX, int kingY) const {
     std::vector<std::pair<int, int>> moves;
-    // Şahın gidebileceği 8 yön
     int dx[] = {-1, -1, -1, 0, 0, 1, 1, 1};
     int dy[] = {-1, 0, 1, -1, 1, -1, 0, 1};
 
@@ -216,12 +250,12 @@ std::vector<std::pair<int, int>> MoveValidator::getKingMoves(int kingX, int king
     return moves;
 }
 
-bool MoveValidator::isSquareUnderAttack(int x, int y, const std::string& attackingColor) const {
+bool MoveValidator::isSquareUnderAttack(int x, int y, const std::string& attackingColor, const std::vector<Portal>& portals) const {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             Piece* piece = board->getPieceAt(i, j);
             if (piece && piece->getColor() == attackingColor) {
-                if (validateMove(piece, i, j, x, y, board->getPortals())) {
+                if (validateMove(piece, i, j, x, y, portals)) {
                     return true;
                 }
             }
@@ -230,8 +264,7 @@ bool MoveValidator::isSquareUnderAttack(int x, int y, const std::string& attacki
     return false;
 }
 
-bool MoveValidator::canKingEscape(const std::string& color) const {
-    // Şahın konumunu bul
+bool MoveValidator::canKingEscape(const std::string& color, const std::vector<Portal>& portals) const {
     int kingX = -1, kingY = -1;
     for (int x = 0; x < 8; x++) {
         for (int y = 0; y < 8; y++) {
@@ -245,43 +278,40 @@ bool MoveValidator::canKingEscape(const std::string& color) const {
         if (kingX != -1) break;
     }
 
-    // Şahın gidebileceği tüm kareleri kontrol et
     std::string oppositeColor = (color == "white") ? "black" : "white";
     for (const auto& move : getKingMoves(kingX, kingY)) {
         int newX = move.first;
         int newY = move.second;
         Piece* targetPiece = board->getPieceAt(newX, newY);
-        
-        // Hedef karede kendi taşı yoksa ve saldırı altında değilse
+
         if ((!targetPiece || targetPiece->getColor() != color) && 
-            !isSquareUnderAttack(newX, newY, oppositeColor)) {
+            !isSquareUnderAttack(newX, newY, oppositeColor, portals)) {
             return true;
         }
     }
     return false;
 }
 
-bool MoveValidator::canPieceBlockCheck(const std::string& color) const {
-    // Tüm taşları kontrol et
+bool MoveValidator::canPieceBlockCheck(const std::string& color, const std::vector<Portal>& portals) const {
     for (int x = 0; x < 8; x++) {
         for (int y = 0; y < 8; y++) {
             Piece* piece = board->getPieceAt(x, y);
             if (piece && piece->getColor() == color) {
-                // Taşın gidebileceği tüm kareleri kontrol et
                 for (int newX = 0; newX < 8; newX++) {
                     for (int newY = 0; newY < 8; newY++) {
-                        if (validateMove(piece, x, y, newX, newY, board->getPortals())) {
-                            // Hamleyi yap
+                        if (validateMove(piece, x, y, newX, newY, portals)) {
                             Piece* capturedPiece = board->getPieceAt(newX, newY);
-                            board->setPieceAt(newX, newY, piece);
-                            board->setPieceAt(x, y, nullptr);
+                            board->placePiece(newX, newY, piece);
+                            board->removePiece(x, y);
 
-                            // Şah hala tehdit altında mı?
-                            bool stillInCheck = isKingInCheck(color);
+                            bool stillInCheck = isKingInCheck(color, portals);
 
-                            // Hamleyi geri al
-                            board->setPieceAt(x, y, piece);
-                            board->setPieceAt(newX, newY, capturedPiece);
+                            board->placePiece(x, y, piece);
+                            if (capturedPiece) {
+                                board->placePiece(newX, newY, capturedPiece);
+                            } else {
+                                board->removePiece(newX, newY);
+                            }
 
                             if (!stillInCheck) {
                                 return true;
@@ -295,16 +325,42 @@ bool MoveValidator::canPieceBlockCheck(const std::string& color) const {
     return false;
 }
 
-bool MoveValidator::isCheckmate(const std::string& color) const {
-    return isKingInCheck(color) && !canKingEscape(color) && !canPieceBlockCheck(color);
+bool MoveValidator::isCheckmate(const std::string& color, const std::vector<Portal>& portals) const {
+    return isKingInCheck(color, portals) && !canKingEscape(color, portals) && !canPieceBlockCheck(color, portals);
 }
 
-bool MoveValidator::isGameOver() const {
-    return isCheckmate("white") || isCheckmate("black");
+bool MoveValidator::isGameOver(const std::vector<Portal>& portals) const {
+    bool whiteKingExists = false;
+    bool blackKingExists = false;
+    
+    for (const auto& piece : board->getAllPieces()) {
+        if (piece->getType() == "King") {
+            if (piece->getColor() == "white") {
+                whiteKingExists = true;
+            } else {
+                blackKingExists = true;
+            }
+        }
+    }
+    
+    return !whiteKingExists || !blackKingExists;
 }
 
-std::string MoveValidator::getWinner() const {
-    if (isCheckmate("white")) return "black";
-    if (isCheckmate("black")) return "white";
-    return "none";
+std::string MoveValidator::getWinner(const std::vector<Portal>& portals) const {
+    bool whiteKingExists = false;
+    bool blackKingExists = false;
+    
+    for (const auto& piece : board->getAllPieces()) {
+        if (piece->getType() == "King") {
+            if (piece->getColor() == "white") {
+                whiteKingExists = true;
+            } else {
+                blackKingExists = true;
+            }
+        }
+    }
+    
+    if (!whiteKingExists) return "black";
+    if (!blackKingExists) return "white";
+    return "draw";
 }

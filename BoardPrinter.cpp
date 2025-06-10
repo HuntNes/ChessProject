@@ -25,7 +25,7 @@ void BoardPrinter::print(const ChessBoard& board) const {
                 std::string color = p->getColor();
                 if (color == "white" && whiteSymbols.count(t)) symbol = whiteSymbols[t];
                 else if (color == "black" && blackSymbols.count(t)) symbol = blackSymbols[t];
-                else symbol = t.substr(0, 1); // custom taşlar
+                else symbol = t.substr(0, 1);
             }
             std::cout << " " << symbol;
         }

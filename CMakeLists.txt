@@ -4,7 +4,6 @@ project(CHESS3)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Include directories
 include_directories(include)
 include_directories(${CMAKE_SOURCE_DIR})
 
@@ -18,10 +17,8 @@ add_executable(CHESS3
         Portal.cpp
         Archer.cpp
         Portal.h
-        BoardPrinter.h     # <-- Bunu eklemene gerek yok, ama eklesen de sorun olmaz
+        BoardPrinter.h
 )
-
-# Copy JSON file to build directory
 configure_file(${CMAKE_SOURCE_DIR}/chess_pieces.json ${CMAKE_BINARY_DIR}/chess_pieces.json COPYONLY)
 
 target_include_directories(CHESS3 PRIVATE include)

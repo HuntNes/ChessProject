@@ -8,7 +8,6 @@
 #include "Portal.h"
 #include "Position.h"
 
-// Forward declarations
 struct Movement;
 struct SpecialAbilities;
 struct PieceConfig;
@@ -16,7 +15,6 @@ struct PortalProperties;
 struct PortalConfig;
 struct GameConfig;
 
-// Movement capabilities for chess pieces
 struct Movement {
   int forward = 0;
   int sideways = 0;
@@ -26,7 +24,6 @@ struct Movement {
   int first_move_forward = 0;
 };
 
-// Special abilities for chess pieces
 struct SpecialAbilities {
   bool castling = false;
   bool royal = false;
@@ -36,7 +33,6 @@ struct SpecialAbilities {
   std::unordered_map<std::string, bool> custom_abilities;
 };
 
-// Configuration for a chess piece
 struct PieceConfig {
   std::string type;
   std::unordered_map<std::string, std::vector<Position>> positions;
@@ -45,14 +41,12 @@ struct PieceConfig {
   int count;
 };
 
-// Properties for portals
 struct PortalProperties {
   bool preserve_direction;
   std::vector<std::string> allowed_colors;
   int cooldown;
 };
 
-// Configuration for a portal
 struct PortalConfig {
   std::string type;
   std::string id;
@@ -63,7 +57,6 @@ struct PortalConfig {
   PortalProperties properties;
 };
 
-// Game configuration
 struct GameConfig {
   struct {
     std::string name;
@@ -78,22 +71,16 @@ struct GameConfig {
 
 class ConfigReader {
 public:
-  // Constructor
   ConfigReader();
 
-  // Load configuration from a file
   bool loadFromFile(const std::string &filePath);
 
-  // Load configuration from a JSON string
   bool loadFromString(const std::string &jsonString);
 
-  // Get the parsed configuration
   const GameConfig &getConfig() const;
 
-  // Validate the configuration
   bool validateConfig();
 
-  // Get portals from the configuration
   const std::vector<PortalConfig>& getPortals() const;
 
 private:
@@ -104,5 +91,5 @@ private:
   void parseCustomPieces(const nlohmann::json &json);
   void parsePortals(const nlohmann::json &json);
   void parseSpecialAbilities(const nlohmann::json &abilities,
-                             SpecialAbilities &specialAbilities);
+  SpecialAbilities &specialAbilities);
 };

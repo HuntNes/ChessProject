@@ -40,7 +40,6 @@ const GameConfig &ConfigReader::getConfig() const {
 }
 
 bool ConfigReader::validateConfig() {
-    // Basit kontrol: en az bir taş ve board_size > 0 olsun
     return m_config.pieces.size() > 0 && m_config.game_settings.board_size > 0;
 }
 
@@ -88,10 +87,7 @@ void ConfigReader::parsePieces(const json &jsonData) {
 }
 
 void ConfigReader::parseCustomPieces(const json &jsonData) {
-    // Aynı yapı parçacığını kullanabiliriz
-    // Gerekirse ayrı işlenebilir
     m_config.custom_pieces.clear();
-    // Şimdilik boş
 }
 
 void ConfigReader::parseSpecialAbilities(const json &abilitiesJson, SpecialAbilities &abilities) {

@@ -1,12 +1,18 @@
 #ifndef CHESS3_GAMEMANAGER_H
 #define CHESS3_GAMEMANAGER_H
 
+#include "ConfigReader.hpp"
 #include "ChessBoard.h"
 #include "MoveValidator.h"
-#include "ConfigReader.h"
 #include "BoardPrinter.h"
 #include <stack>
 #include <string>
+
+// Store last move information for en passant
+struct LastMove {
+    int fromX, fromY, toX, toY;
+    std::string pieceType;
+};
 
 class GameManager {
 private:
@@ -16,6 +22,7 @@ private:
     std::string currentPlayer;
     std::stack<std::pair<std::pair<int, int>, std::pair<int, int>>> moveHistory;
     bool gameOver;
+    LastMove lastMove;
 
 public:
     GameManager();
@@ -28,6 +35,7 @@ public:
     void switchPlayer();
     void printBoard() const;
     void printGameStatus() const;
+    const LastMove& getLastMove() const { return lastMove; }
 };
 
 #endif //CHESS3_GAMEMANAGER_H 

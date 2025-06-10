@@ -1,10 +1,12 @@
 #include "GameManager.h"
 #include <iostream>
 
-GameManager::GameManager() : currentPlayer("white"), gameOver(false) {
-    board = new ChessBoard();
+GameManager::GameManager() : gameOver(false), currentPlayer("white") {
+    board = new ChessBoard(8);
     validator = new MoveValidator(board);
-    printer = new BoardPrinter();
+    printer = new BoardPrinter(board);
+    // Initialize lastMove
+    lastMove = {0, 0, 0, 0, ""};
 }
 
 GameManager::~GameManager() {
@@ -19,52 +21,54 @@ void GameManager::start() {
 }
 
 void GameManager::makeMove(int fromX, int fromY, int toX, int toY) {
-    if (gameOver) {
-        std::cout << "Oyun bitti! Yeni bir oyun başlatın." << std::endl;
-        return;
-    }
+    if (gameOver) return;
 
     Piece* piece = board->getPieceAt(fromX, fromY);
-    if (!piece) {
-        std::cout << "Seçilen konumda taş yok!" << std::endl;
+    if (!piece || piece->getColor() != currentPlayer) return;
+
+    std::cout << "Attempting move: " << fromX << "," << fromY << " -> " << toX << "," << toY << std::endl;
+    std::cout << "Piece type: " << piece->getType() << ", Color: " << piece->getColor() << std::endl;
+
+    // Validate move
+    if (!validator->validateMove(piece, fromX, fromY, toX, toY, {})) {
+        std::cout << "Invalid move!" << std::endl;
         return;
     }
 
-    if (piece->getColor() != currentPlayer) {
-        std::cout << "Sıra " << currentPlayer << " oyuncuda!" << std::endl;
-        return;
+    // Check for adjacent pawn capture
+    if (piece->getType() == "Pawn" && std::abs(toX - fromX) == 1 && std::abs(toY - fromY) == 1) {
+        Piece* targetPiece = board->getPieceAt(toX, toY);
+        if (!targetPiece) {
+            // This is an adjacent pawn capture
+            // Check the square where the pawn was passed
+            int passedPawnY = (toY > fromY) ? fromY : toY; // Use the lower Y coordinate
+            Piece* passedPawn = board->getPieceAt(toX, passedPawnY);
+            if (passedPawn && passedPawn->getType() == "Pawn" && passedPawn->getColor() != piece->getColor()) {
+                std::cout << "Capturing passed pawn at " << toX << "," << passedPawnY << std::endl;
+                board->removePiece(toX, passedPawnY);
+            }
+        }
     }
 
-    if (!validator->validateMove(piece, fromX, fromY, toX, toY, board->getPortals())) {
-        std::cout << "Geçersiz hamle!" << std::endl;
-        return;
-    }
+    // Store move information
+    lastMove = {fromX, fromY, toX, toY, piece->getType()};
 
-    // Hamleyi yap
-    Piece* capturedPiece = board->getPieceAt(toX, toY);
-    board->setPieceAt(toX, toY, piece);
-    board->setPieceAt(fromX, fromY, nullptr);
-
-    // Hamleyi kaydet
+    // Make the move
+    board->movePiece(fromX, fromY, toX, toY);
     moveHistory.push({{fromX, fromY}, {toX, toY}});
 
-    // Şah-mat kontrolü
-    if (validator->isGameOver()) {
-        gameOver = true;
-        std::cout << "Şah-mat! " << validator->getWinner() << " oyuncu kazandı!" << std::endl;
-    } else {
-        switchPlayer();
+    // Check for pawn promotion
+    if (piece->getType() == "Pawn" && (toY == 0 || toY == 7)) {
+        // Promote to queen (you can add a method to let the player choose the piece)
+        board->removePiece(toX, toY);
+        board->placePiece(toX, toY, new Piece("Queen", currentPlayer, {{"forward", 8}, {"sideways", 8}, {"diagonal", 8}}, {}));
     }
 
-    printBoard();
-    printGameStatus();
+    switchPlayer();
 }
 
 void GameManager::undoMove() {
-    if (moveHistory.empty()) {
-        std::cout << "Geri alınacak hamle yok!" << std::endl;
-        return;
-    }
+    if (moveHistory.empty()) return;
 
     auto lastMove = moveHistory.top();
     moveHistory.pop();
@@ -74,15 +78,16 @@ void GameManager::undoMove() {
     int toX = lastMove.second.first;
     int toY = lastMove.second.second;
 
-    // Hamleyi geri al
+    // Check if it was an en passant capture
     Piece* movedPiece = board->getPieceAt(toX, toY);
-    board->setPieceAt(fromX, fromY, movedPiece);
-    board->setPieceAt(toX, toY, nullptr);
+    if (movedPiece && movedPiece->getType() == "Pawn" && std::abs(toX - fromX) == 1 && std::abs(toY - fromY) == 1) {
+        // Restore the captured pawn
+        std::string capturedColor = (movedPiece->getColor() == "white") ? "black" : "white";
+        board->placePiece(toX, fromY, new Piece("Pawn", capturedColor, {{"forward", 1}}, {}));
+    }
 
-    gameOver = false;
+    board->movePiece(toX, toY, fromX, fromY);
     switchPlayer();
-    printBoard();
-    printGameStatus();
 }
 
 bool GameManager::isGameOver() const {
@@ -102,11 +107,11 @@ void GameManager::printBoard() const {
 }
 
 void GameManager::printGameStatus() const {
-    std::cout << "Sıra: " << currentPlayer << std::endl;
-    if (validator->isKingInCheck(currentPlayer)) {
-        std::cout << "Şah tehdit altında!" << std::endl;
+    std::cout << "Turn: " << currentPlayer << std::endl;
+    if (validator->isKingInCheck(currentPlayer, board->getPortals())) {
+        std::cout << "King is in check!" << std::endl;
     }
     if (gameOver) {
-        std::cout << "Oyun bitti! Kazanan: " << validator->getWinner() << std::endl;
+        std::cout << "Game over! Winner: " << validator->getWinner(board->getPortals()) << std::endl;
     }
 } 
