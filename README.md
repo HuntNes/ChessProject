@@ -15,8 +15,6 @@ Developed in modern C++20 as part of the CSE211 Data Structures course.
 
 ## 🛠️ Build & Run Instructions (macOS / Linux)
 
-### 🔹 1. Repoyu klonla
-
 ```bash
 git clone https://github.com/HuntNes/ChessProject.git
 cd ChessProject
